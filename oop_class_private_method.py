@@ -1,0 +1,30 @@
+'''
+Author: wushuangyue 121999194+wushuangyue@users.noreply.github.com
+Date: 2023-06-29 21:26:23
+LastEditors: wushuangyue 121999194+wushuangyue@users.noreply.github.com
+LastEditTime: 2023-06-29 21:27:02
+FilePath: \python-feature-test\oop_class_private_method.py
+Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+'''
+#!/usr/bin/python3
+ 
+class Site:
+    def __init__(self, name, url):
+        self.name = name       # public
+        self.__url = url   # private
+ 
+    def who(self):
+        print('name  : ', self.name)
+        print('url : ', self.__url)
+ 
+    def __foo(self):          # 私有方法
+        print('这是私有方法')
+ 
+    def foo(self):            # 公共方法
+        print('这是公共方法')
+        self.__foo()
+ 
+x = Site('菜鸟教程', 'www.runoob.com')
+x.who()        # 正常输出
+x.foo()        # 正常输出
+x.__foo()      # 报错
